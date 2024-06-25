@@ -1,0 +1,25 @@
+Problem No. 1365 (Number Smaller than the current Number)
+
+class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] sortedNums = nums.clone();   //copy of sorted array
+        Arrays.sort(sortedNums);
+
+        Map<Integer, Integer> rankMap = new HashMap<>();
+
+                //Fill the map with the rank of each element
+        for (int i = 0; i < sortedNums.length; i++) {
+            if (!rankMap.containsKey(sortedNums[i])) {
+                rankMap.put(sortedNums[i], i);
+            }
+        }
+
+                   // Construct the result array using map
+        int[] result = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            result[i] = rankMap.get(nums[i]);
+        }
+
+        return result;
+    }
+}
