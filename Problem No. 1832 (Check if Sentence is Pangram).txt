@@ -1,0 +1,24 @@
+Problem No. 1832 (Check if Sentence is a Pangram)
+
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        boolean[] mark = new boolean[26];
+        int index = 0;
+        sentence = sentence.toLowerCase();         //converting into lower case to avoid case sensitivity
+        
+        for (int i = 0;i < sentence.length(); i++) {
+            if ('a' <= sentence.charAt(i) && sentence.charAt(i) <= 'z') {
+                index = sentence.charAt(i) - 'a';  //calculating the index of each char through ascii value after sub from a 
+                mark[index] = true;           // storing the index of each char to check further if they are present or not
+            }
+        }
+        // Checking if all the characters are present
+        for (int i = 0; i < 26; i++) {
+            if (!mark[i]) {
+                return false;
+            }
+        }
+        return true;
+        
+    }
+}
