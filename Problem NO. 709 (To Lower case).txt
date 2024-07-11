@@ -1,7 +1,0 @@
-Problem No. 709 (To Lower case)
-
-class Solution {
-    public String toLowerCase(String s) {
-        return s.toLowerCase();
-    }
-}
