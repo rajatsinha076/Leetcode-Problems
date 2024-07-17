@@ -1,0 +1,26 @@
+Problem No. 1833 (Maximum Ice Cream Bars)
+
+class Solution {
+    public int maxIceCream(int[] costs, int coins) {
+         int maxCost = 0;
+        for (int cost : costs) {
+            if (cost > maxCost) {
+                maxCost = cost;
+            }
+        }
+        int[] count = new int[maxCost + 1];
+        for (int cost : costs) {
+            count[cost]++;
+        }
+        int maxBars = 0;
+        for (int i = 1; i <= maxCost; i++) {
+            if (coins >= i) {
+                int numOfBars = Math.min(count[i], coins / i);
+                maxBars += numOfBars;
+                coins -= numOfBars * i;
+            }
+        }
+
+        return maxBars;
+    }
+}
