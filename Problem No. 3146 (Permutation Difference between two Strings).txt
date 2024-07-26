@@ -1,0 +1,18 @@
+Problem No. 3146 (Permutation Difference between Two Strings)
+
+class Solution {
+    public int findPermutationDifference(String s, String t) 
+    {
+        int difference = 0;
+
+        for (int i = 0; i < s.length(); i++) 
+        {
+            char c = s.charAt(i);
+            int sIndex = s.indexOf(c);
+            int tIndex = t.indexOf(c);
+            difference += Math.abs(sIndex - tIndex);
+        }
+
+        return difference; 
+    }
+}
