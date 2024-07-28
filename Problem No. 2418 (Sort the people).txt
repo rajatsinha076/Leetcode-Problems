@@ -1,0 +1,26 @@
+Problem No. 2418 (Sort the people)
+
+class Solution 
+{
+    public String[] sortPeople(String[] names, int[] heights) 
+    {
+       Map<Integer, String> heightToName = new HashMap<>();
+        for (int i = 0; i < names.length; i++) 
+        {
+            heightToName.put(heights[i], names[i]);
+        }
+        
+        // Get the heights and sort them in descending order
+        Integer[] sortedHeights = heightToName.keySet().toArray(new Integer[0]);
+        Arrays.sort(sortedHeights, Collections.reverseOrder());
+        
+        // Get the sorted names based on the sorted heights
+        String[] sortedNames = new String[names.length];
+        for (int i = 0; i < sortedHeights.length; i++) 
+        {
+            sortedNames[i] = heightToName.get(sortedHeights[i]);
+        }
+        
+        return sortedNames; 
+    }
+}
