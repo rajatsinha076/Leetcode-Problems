@@ -1,0 +1,18 @@
+Problem No. 2520 (Count the Digits that Divide a Number)
+
+class Solution {
+    public int countDigits(int num) {
+        int count = 0;
+        int originalNum = num;
+        
+        while (num > 0) {
+            int digit = num % 10;
+            if (originalNum % digit == 0) {
+                count++;
+            }
+            num /= 10;
+        }
+        
+        return count;
+    }
+}
