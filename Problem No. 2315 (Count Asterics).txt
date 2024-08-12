@@ -1,0 +1,22 @@
+Problem No. 2315 (Count Asterics)
+
+class Solution {
+    public int countAsterisks(String s) {
+         boolean insidePair = false;
+        int asteriskCount = 0;
+
+        for (char c : s.toCharArray()) 
+        {
+            if (c == '|') 
+            {
+                insidePair = !insidePair;
+            } else if (c == '*' && !insidePair) 
+            {
+                asteriskCount++;
+            }
+        }
+
+        return asteriskCount;
+    }
+}
+
